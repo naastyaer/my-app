@@ -1,5 +1,5 @@
 const Product = (props) =>{
-    const { product, deleteProduct } = props
+    const { product, deleteProduct, changeIsAdded} = props
     /*надо написать функцию, которая будет показывать 1 кнопку при нажатии*/
     return (
         
@@ -9,14 +9,18 @@ const Product = (props) =>{
                     <p className="text-2xl font-bold mt-4">{product.name} </p>
                     
                 </div>
-                <div className="flex-row flex mt-8">
-                    <div className=" w-10 h-10 bg-red-500">
-                        <img src="Img/delete_icon.png" alt="" className="z-10" onClick={() => deleteProduct(product.id)} />
+                <div className="flex-row flex mt-8 ">
+                    <div className=" w-16 h-10 bg-red-500 rounded-full shadow">
+                        <img src="Img/delete_icon.png" alt="" className="z-10 w-10 h-10 mx-auto" onClick={() => deleteProduct(product.id)} />
                         
                     </div>
-                    <div className=" h-10 bg-blue-500 ml-5 px-2 py-1">
-                        <img src="Img/delete_icon.png" alt="" className="z-10 " />
-                        <a className=" hover: cursor-pointer">В корзину</a>
+                    <div className="bg-blue-500 ml-5  w-16 h-10 rounded-full shadow" onClick={() => changeIsAdded(product.id)}>
+                        {product.isAdded ===false && (
+                        <img src="Img/shop_icon.png" alt="" className="z-10 w-10 h-10 mx-auto " />
+                        )}
+                        {product.isAdded ===true && (
+                        <img src="Img/check_icon.png" alt="" className="z-10 w-10 h-10 mx-auto " />
+                        )}
                     </div>
                 </div>
                     
