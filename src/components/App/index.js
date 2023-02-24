@@ -43,12 +43,13 @@ function App() {
     const filteredProducts = []
     const deleteProduct = (id) => {
         const filteredProducts  = products.filter(product => product.id !== id)
-        console.log (filteredProducts)
+        /*console.log (filteredProducts)*/
         setProducts (filteredProducts)
     }
     const changeIsAdded = (id) => { 
         const changedIsAdded =  products.find(product => product.id === id)
-        console.log(changedIsAdded)
+        /*console.log(id)*/
+        
         if (changedIsAdded.isAdded === true) {
             changedIsAdded.isAdded = false
         } else {
@@ -70,7 +71,7 @@ function App() {
                     )}
                     
                 {products.length > 0 && products.map( (product) => {
-                return (<Product key={product.id} product={product} deleteProduct={deleteProduct} changeIsAdded={changeIsAdded}  />)
+                return (<Product key={product.name+product.id} product={product} deleteProduct={deleteProduct} changeIsAdded={changeIsAdded}  />)
                 })}
             </div>
                     
