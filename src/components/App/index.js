@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import 'components/App/App.css';
-import Button from 'components/Button';
 import Header from 'components/Header';
-import Footer from 'components/Footer';
 import Product from 'components/Product';
 function App() {
     
@@ -48,6 +46,7 @@ function App() {
     }
     const changeIsAdded = (id) => { 
         const changedIsAdded =  products.find(product => product.id === id)
+        const index = products.indexOf(changedIsAdded)
         /*console.log(id)*/
         
         if (changedIsAdded.isAdded === true) {
@@ -56,8 +55,7 @@ function App() {
             changedIsAdded.isAdded = true
         }
         const newIsAdded = [...products]
-        /*console.log(products)*/
-        const elemIsAdded = newIsAdded.splice(id-1,1,changedIsAdded);
+        const elemIsAdded = newIsAdded.splice(index,1,changedIsAdded);
         setProducts (newIsAdded)
     }
 
@@ -76,7 +74,6 @@ function App() {
             </div>
                     
                 </div>
-            <Footer/>
         </div>
         
     )       
