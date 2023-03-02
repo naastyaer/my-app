@@ -38,7 +38,6 @@ function App() {
                 
             }
     ])   
-    const filteredProducts = []
     const deleteProduct = (id) => {
         const filteredProducts  = products.filter(product => product.id !== id)
         /*console.log (filteredProducts)*/
@@ -55,7 +54,7 @@ function App() {
             changedIsAdded.isAdded = true
         }
         const newIsAdded = [...products]
-        const elemIsAdded = newIsAdded.splice(index,1,changedIsAdded);
+        newIsAdded.splice(index,1,changedIsAdded);
         setProducts (newIsAdded)
     }
 
